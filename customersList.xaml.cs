@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ClientLourd_Agenda;
+using System.Data.Entity;
 
 namespace ClientLourd_Agenda
 {
@@ -24,22 +25,53 @@ namespace ClientLourd_Agenda
     public partial class customersList : Page
     {
         private agenda_DB db = new agenda_DB();
-        //public ObservableCollection<agenda_DB> agenda { get; set; }
+        customers customer;
+
         public customersList()
         {
             InitializeComponent();
-            //this.DataContext = this;
-            //agenda = new ObservableCollection<agenda_DB>();
+            customer = new customers();
         }
-
+        // liste des clients
         private void ListCusDataGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            //var listCustomers = db.customers;
-            //List<customers> listcustomers = new List<customers>();
-            //db.customers.ToList();
-            //var grid = sender as DataGrid;
             listCusDataGrid.ItemsSource = db.customers.ToList();
-            
+        }
+
+        private void ListCusDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (listCusDataGrid.SelectedItem == null) return;  
+            customer = listCusDataGrid.SelectedItem as customers;
+
+            CustomerLastName.Text = customer.lastname;
+            CustomerFirstName.Text = customer.firstname;
+            CustomerMail.Text = customer.mail;
+            CustomerPhone.Text = customer.phoneNumber;
+            CustomerBudget.Text = customer.budget.ToString();
+            CustomerSubject.Text = customer.subject;
+            EditCustomer.Visibility = Visibility.Visible;
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            customer.lastname = CustomerLastName.Text;
+            customer.firstname = CustomerFirstName.Text;
+            customer.mail = CustomerMail.Text;
+            customer.phoneNumber = CustomerPhone.Text;
+            customer.budget = int.Parse(CustomerBudget.Text);
+            customer.subject = CustomerSubject.Text;
+            db.Entry(customer).State = EntityState.Modified;
+            db.SaveChanges();
+            MessageBox.Show("Client modifié avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
+            listCusDataGrid.Items.Refresh();
+            //listCusDataGrid.ItemsSource = null;
+            //listCusDataGrid.ItemsSource = db.customers.ToList();
+
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            EditCustomer.Visibility = Visibility.Hidden;
         }
     }
 }

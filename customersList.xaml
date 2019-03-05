@@ -7,8 +7,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="customersList" Background="LightGray">
-
-    <DataGrid AutoGenerateColumns="False" Loaded="ListCusDataGrid_Loaded" x:Name="listCusDataGrid" VerticalAlignment="Center" HorizontalAlignment="Center">
+    <Grid>
+        <DataGrid MouseDoubleClick="ListCusDataGrid_MouseDoubleClick" AutoGenerateColumns="False" Loaded="ListCusDataGrid_Loaded" x:Name="listCusDataGrid" VerticalAlignment="Center" HorizontalAlignment="Center">
         <DataGrid.Columns>
             <!--<DataGridTextColumn Header="id" Binding="{Binding idCustomer}" />-->
             <DataGridTextColumn Header="Nom" Binding="{Binding lastname}" />
@@ -16,7 +16,29 @@
             <DataGridTextColumn Header="Mail" Binding="{Binding mail}"/>
             <DataGridTextColumn Header="Tel" Binding="{Binding phoneNumber}"/>
             <DataGridTextColumn Header="Budget" Binding="{Binding budget}"/>
-            <DataGridTextColumn Header="Subject" Binding="{Binding subject}"/>
-        </DataGrid.Columns>
+                <DataGridTextColumn Header="Subject" Binding="{Binding subject}"/>
+            </DataGrid.Columns>
     </DataGrid>
+        <Grid x:Name="EditCustomer" VerticalAlignment="Center" HorizontalAlignment="Right" Visibility="Hidden" Background="LightBlue">
+            <Border BorderBrush="Black" BorderThickness="4" >
+                <StackPanel Width="250" Margin="5">
+                <TextBlock Foreground="White" FontWeight="Bold" FontSize="18" Margin="0,0,0,10">Modifier un client</TextBlock>
+                <Label Content="Nom"/>
+                <TextBox x:Name="CustomerLastName"/>
+                <Label Content="Prénom"/>
+                <TextBox x:Name="CustomerFirstName"/>
+                <Label Content="Mail"/>
+                <TextBox x:Name="CustomerMail"/>
+                <Label Content="Tel"/>
+                <TextBox x:Name="CustomerPhone"/>
+                <Label Content="Budget"/>
+                <TextBox x:Name="CustomerBudget"/>
+                <Label Content="Sujet"/>
+                <TextBox x:Name="CustomerSubject"/>
+                <Button x:Name="Save" Width="100" Margin="0,20,0,5" Click="Save_Click">Enregistrer</Button>
+                <Button x:Name="Cancel" Width="100" Click="Cancel_Click">Annuler</Button>
+            </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
 </Page>

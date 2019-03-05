@@ -23,10 +23,10 @@ namespace ClientLourd_Agenda
     public partial class addCustomer : Page
     {
         private agenda_DB db = new agenda_DB();
-        string regexName = @"^[A-Za-zéèàêâôûùïüç\-]+$";
-        string regexMail = @"[0-9a-zA-Z\.\-]+@[0-9a-zA-Z\.\-]+.[a-zA-Z]{2,4}";
-        string regexPhone = @"^[0][0-9]{9}";
-        string regexSubject = @"^[A-Za-zéèêëâäàçîïôö&-.,'\ ]+$";
+        //string regexName = @"^[A-Za-zéèàêâôûùïüç\-]+$";
+        //string regexMail = @"[0-9a-zA-Z\.\-]+@[0-9a-zA-Z\.\-]+.[a-zA-Z]{2,4}";
+        //string regexPhone = @"^[0][0-9]{9}";
+        //string regexSubject = @"^[A-Za-zéèêëâäàçîïôö&-.,'\ ]+$";
 
         public addCustomer()
         {
@@ -125,6 +125,7 @@ namespace ClientLourd_Agenda
             db.customers.Add(customerToAdd); // insertion dans la bdd avec .Add
             db.SaveChanges(); // enregistrer les changements
             MessageBox.Show("Client ajouté avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
+
         }
     }
 }
