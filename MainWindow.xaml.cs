@@ -25,19 +25,49 @@ namespace ClientLourd_Agenda
             InitializeComponent();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            FrameContent.Navigate(new System.Uri("customersList.xaml", UriKind.RelativeOrAbsolute));
+        }
+
         private void AddCustomer_Click(object sender, RoutedEventArgs e)
         {
             FrameContent.Navigate(new System.Uri("addCustomer.xaml", UriKind.RelativeOrAbsolute));
         }
+        //private void Menu_AddCustomer(object sender, RoutedEventArgs e)
+        //{
+        //    FrameContent.Content = new addCustomer();
+        //}
 
         private void ListCustomers_Click(object sender, RoutedEventArgs e)
         {
             FrameContent.Navigate(new System.Uri("customersList.xaml", UriKind.RelativeOrAbsolute));
             
         }
-        //private void Menu_AddCustomer(object sender, RoutedEventArgs e)
-        //{
-        //    FrameContent.Content = new addCustomer();
-        //}
+
+        private void AddBroker_Click(object sender, RoutedEventArgs e)
+        {
+            FrameContent.Navigate(new System.Uri("addBroker.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void ListBroker_Click(object sender, RoutedEventArgs e)
+        {
+            FrameContent.Navigate(new System.Uri("brokersList.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void AddRdv_Click(object sender, RoutedEventArgs e)
+        {
+            FrameContent.Navigate(new System.Uri("addAppointment.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void ListRdv_Click(object sender, RoutedEventArgs e)
+        {
+            FrameContent.Navigate(new System.Uri("appointmentsList.xaml", UriKind.RelativeOrAbsolute));
+        }
     }
 }

@@ -125,7 +125,12 @@ namespace ClientLourd_Agenda
             db.customers.Add(customerToAdd); // insertion dans la bdd avec .Add
             db.SaveChanges(); // enregistrer les changements
             MessageBox.Show("Client ajouté avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
+            NavigationService.GoBack();
+        }
 
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

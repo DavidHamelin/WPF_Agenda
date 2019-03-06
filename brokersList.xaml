@@ -1,4 +1,4 @@
-﻿<Page x:Class="ClientLourd_Agenda.customersList"
+﻿<Page x:Class="ClientLourd_Agenda.brokersList"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,13 +6,14 @@
       xmlns:local="clr-namespace:ClientLourd_Agenda"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="customersList" Background="Transparent">
+      Title="brokersList" Background="#FFEEEEEE">
+
     <Grid>
-        <TextBlock Foreground="#FF4B6AA2" FontWeight="Bold" FontSize="18" Margin="30,10,0,0">Liste des Clients</TextBlock>
-        <DataGrid MouseDoubleClick="ListCusDataGrid_MouseDoubleClick" AutoGenerateColumns="False"
+        <TextBlock Foreground="#FF4B6AA2" FontWeight="Bold" FontSize="18" Margin="30,10,0,0">Liste des Courtiers</TextBlock>
+        <DataGrid MouseDoubleClick="ListBrokersDataGrid_MouseDoubleClick" AutoGenerateColumns="False"
                   AlternatingRowBackground="#FFEEEEEE" AlternationCount="2"
                   CanUserAddRows="False" CanUserResizeRows="False"
-                  Loaded="ListCusDataGrid_Loaded" x:Name="listCusDataGrid" 
+                  Loaded="ListBrokersDataGrid_Loaded" x:Name="listBrokersDataGrid" 
                   VerticalAlignment="Top" HorizontalAlignment="Left" Margin="30,50,0,0">
             <DataGrid.Columns>
                 <!--<DataGridTextColumn Header="id" Binding="{Binding idCustomer}" />-->
@@ -20,11 +21,9 @@
                 <DataGridTextColumn Header="Prénom" Binding="{Binding firstname}"/>
                 <DataGridTextColumn Header="Mail" Binding="{Binding mail}"/>
                 <DataGridTextColumn Header="Tel" Binding="{Binding phoneNumber}"/>
-                <DataGridTextColumn Header="Budget" Binding="{Binding budget}"/>
-                <DataGridTextColumn Header="Subject" Binding="{Binding subject}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Grid x:Name="EditCustomer" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,20,0" Visibility="Hidden">
+        <Grid x:Name="EditBroker" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,20,0" Visibility="Hidden">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFE2E2E2" Offset="1"/>
@@ -38,19 +37,15 @@
                             <SolidColorBrush Color="#FFD81E1E"/>
                         </Button.Background> X
                     </Button>
-                    <TextBlock Foreground="#FF4B6AA2" FontWeight="Bold" FontSize="18" Margin="0,0,0,10">Modifier un client</TextBlock>
+                    <TextBlock Foreground="#FF4B6AA2" FontWeight="Bold" FontSize="18" Margin="0,0,0,10">Modifier un courtier</TextBlock>
                     <Label FontWeight="Bold" Foreground="#FF4B6AA2" Content="Nom"/>
-                    <TextBox x:Name="CustomerLastName"/>
+                    <TextBox x:Name="BrokerLastName"/>
                     <Label FontWeight="Bold" Foreground="#FF4B6AA2" Content="Prénom"/>
-                    <TextBox x:Name="CustomerFirstName"/>
+                    <TextBox x:Name="BrokerFirstName"/>
                     <Label FontWeight="Bold" Foreground="#FF4B6AA2" Content="Mail"/>
-                    <TextBox x:Name="CustomerMail"/>
+                    <TextBox x:Name="BrokerMail"/>
                     <Label FontWeight="Bold" Foreground="#FF4B6AA2" Content="Tel"/>
-                    <TextBox x:Name="CustomerPhone"/>
-                    <Label FontWeight="Bold" Foreground="#FF4B6AA2" Content="Budget"/>
-                    <TextBox x:Name="CustomerBudget"/>
-                    <Label FontWeight="Bold" Foreground="#FF4B6AA2" Content="Sujet"/>
-                    <TextBox x:Name="CustomerSubject"/>
+                    <TextBox x:Name="BrokerPhone"/>
                     <Button x:Name="Save" Width="100" Background="#FF4B6AA2" Foreground="White" Margin="0,20,0,5" Click="Save_Click">Enregistrer</Button>
                     <Button x:Name="Delete" Width="100" Background="#FFD81E1E" Foreground="White" Click="Delete_Click">Supprimer</Button>
                 </StackPanel>

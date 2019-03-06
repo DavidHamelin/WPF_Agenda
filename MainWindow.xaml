@@ -5,18 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientLourd_Agenda"
         mc:Ignorable="d"
-        Title="Agenda LaManu" Height="600" Width="800">
+        Title="Agenda LaManu" Height="600" Width="800" Loaded="Window_Loaded" ResizeMode="NoResize">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Fichier">
+                <MenuItem  Header="_Salut !" />
+                <Separator />
+                <MenuItem Header="_Quitter" Click="MenuItem_Click" />
+            </MenuItem>
             <MenuItem Header="_Clients">
                 <MenuItem x:Name="AddCustomer" Header="_Ajouter un Client" Click="AddCustomer_Click" />
                 <MenuItem x:Name="ListCustomers" Header="_Liste des Clients" Click="ListCustomers_Click" />
+            </MenuItem>
+            <MenuItem Header="_Courtiers">
+                <MenuItem x:Name="AddBroker" Header="_Ajouter un Courtier" Click="AddBroker_Click" />
+                <MenuItem x:Name="ListBroker" Header="_Liste des Courtiers" Click="ListBroker_Click" />
+            </MenuItem>
+            <MenuItem Header="_Rendez-Vous">
+                <MenuItem x:Name="AddRdv" Header="_Ajouter un RDV" Click="AddRdv_Click" />
+                <MenuItem x:Name="ListRdv" Header="_Liste des RDV" Click="ListRdv_Click" />
+            </MenuItem>
+            <MenuItem Header="_?">
+                <MenuItem x:Name="Help" Header="_Aide" />
                 <Separator />
-                <MenuItem Header="_Quitter" />
+                <MenuItem x:Name="About" Header="_A propos" />
             </MenuItem>
         </Menu>
         <Grid>
-            <Frame x:Name="FrameContent" Content="Accueil" Height="549" VerticalAlignment="Top" NavigationUIVisibility="Hidden"/>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="#FF3591C5" Offset="1"/>
+                    <GradientStop Color="#FF95C5E0" Offset="0.83"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <TextBlock HorizontalAlignment="Center" FontSize="28" Foreground="#FF4B6AA2" FontWeight="Bold" TextDecorations="{x:Null}">- Gestion des rendez-vous -</TextBlock>
+            <Frame x:Name="FrameContent" Height="501" VerticalAlignment="Top" NavigationUIVisibility="Hidden" Margin="0,48,0,0"/>
         </Grid>
     </DockPanel>
 </Window>

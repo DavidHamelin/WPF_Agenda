@@ -23,3 +23,11 @@ C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\obj\Debug\addCustomer.
 C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\obj\Debug\addCustomer.baml
 C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\obj\Debug\customersList.g.cs
 C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\obj\Debug\customersList.baml
+C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\obj\Debug\addBroker.g.cs
+C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\obj\Debug\brokersList.g.cs
+C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\obj\Debug\addBroker.baml
+C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\obj\Debug\brokersList.baml
+C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\obj\Debug\addAppointment.g.cs
+C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\obj\Debug\appointmentsList.g.cs
+C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\obj\Debug\addAppointment.baml
+C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\obj\Debug\appointmentsList.baml

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\App.xaml
-3-994746621
+7-254427884
 
-111881594540
+15-10563116
 18-1941853466
-addCustomer.xaml;customersList.xaml;MainWindow.xaml;
+addAppointment.xaml;addBroker.xaml;addCustomer.xaml;appointmentsList.xaml;brokersList.xaml;customersList.xaml;MainWindow.xaml;
 
 False
 

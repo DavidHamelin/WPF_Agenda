@@ -38,6 +38,11 @@ namespace ClientLourd_Agenda
             listCusDataGrid.ItemsSource = db.customers.ToList();
         }
 
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            EditCustomer.Visibility = Visibility.Hidden;
+        }
+
         private void ListCusDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (listCusDataGrid.SelectedItem == null) return;  
@@ -64,14 +69,34 @@ namespace ClientLourd_Agenda
             db.SaveChanges();
             MessageBox.Show("Client modifié avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
             listCusDataGrid.Items.Refresh();
+            // Autre façon de rafraichir la page :
             //listCusDataGrid.ItemsSource = null;
             //listCusDataGrid.ItemsSource = db.customers.ToList();
-
         }
 
-        private void Cancel_Click(object sender, RoutedEventArgs e)
+        private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            EditCustomer.Visibility = Visibility.Hidden;
+            MessageBoxResult result = MessageBox.Show("Etes-vous sûr de supprimer ce client ?", "Suppression", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            switch (result)
+            {
+                case MessageBoxResult.OK:
+                    DeleteCustomer();
+                    break;
+                case MessageBoxResult.Cancel:
+                    // retour à modification
+                    break;
+            }
         }
+
+        private void DeleteCustomer()
+        {
+            db.customers.Remove(customer);
+            db.SaveChanges();
+            MessageBox.Show("Client supprimé avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
+            EditCustomer.Visibility = Visibility.Hidden;
+            listCusDataGrid.ItemsSource = null;
+            listCusDataGrid.ItemsSource = db.customers.ToList();
+        }
+        // Main.NavigationService.Navigate(new MainWindow());
     }
 }

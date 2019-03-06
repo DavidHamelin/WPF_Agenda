@@ -64,7 +64,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="addAppointment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="addBroker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="addCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="appointmentsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="brokersList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -76,6 +92,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="addAppointment.xaml.cs">
+      <DependentUpon>addAppointment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="addBroker.xaml.cs">
+      <DependentUpon>addBroker.xaml</DependentUpon>
+    </Compile>
     <Compile Include="addCustomer.xaml.cs">
       <DependentUpon>addCustomer.xaml</DependentUpon>
     </Compile>
@@ -85,7 +107,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="appointements.cs" />
+    <Compile Include="appointmentsList.xaml.cs">
+      <DependentUpon>appointmentsList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="brokers.cs" />
+    <Compile Include="brokersList.xaml.cs">
+      <DependentUpon>brokersList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="customers.cs" />
     <Compile Include="customersList.xaml.cs">
       <DependentUpon>customersList.xaml</DependentUpon>
