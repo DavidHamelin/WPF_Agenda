@@ -40,6 +40,8 @@
                     </Button>
                     <TextBlock Foreground="#FF4B6AA2" FontWeight="Bold" FontSize="18" Margin="0,0,0,10">Modifier un client</TextBlock>
                     <Label FontWeight="Bold" Foreground="#FF4B6AA2" Content="Nom"/>
+                    <!--<TextBox x:Name="CustomerLastName" Text="{Binding ElementName=listCusDataGrid, Path=SelectedItem.lastname, Mode=TwoWay}"/>
+                    le mode twoways affiche directement la modif dans la liste-->
                     <TextBox x:Name="CustomerLastName"/>
                     <Label FontWeight="Bold" Foreground="#FF4B6AA2" Content="Prénom"/>
                     <TextBox x:Name="CustomerFirstName"/>

@@ -16,10 +16,9 @@
                   Loaded="ListRdvDataGrid_Loaded" x:Name="listRdvDataGrid" 
                   VerticalAlignment="Top" HorizontalAlignment="Left" Margin="30,50,0,0">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Client" Binding="{Binding lastname}" />
-                <DataGridTextColumn Header="Courtier" Binding="{Binding lastname}"/>
-                <DataGridTextColumn Header="Date" Binding="{Binding dateHour}"/>
-                <DataGridTextColumn Header="Horaire" Binding="{Binding dateHour}"/>
+                <DataGridTextColumn Header="Client" Binding="{Binding customers.lastname}" />
+                <DataGridTextColumn Header="Courtier" Binding="{Binding brokers.lastname}"/>
+                <DataGridTextColumn Header="Date et Horaire" Binding="{Binding dateHour}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Grid x:Name="EditRdv" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,20,0" Visibility="Hidden">
@@ -38,13 +37,9 @@
                     </Button>
                     <TextBlock Foreground="#FF4B6AA2" FontWeight="Bold" FontSize="18" Margin="0,0,0,10">Modifier un RDV</TextBlock>
                     <Label FontWeight="Bold" Foreground="#FF4B6AA2" Content="Clients"/>
-                    <ComboBox x:Name="rdvCustomers">
-                        <ComboBoxItem Content=""></ComboBoxItem>
-                    </ComboBox>
+                    <ComboBox x:Name="rdvCustomers" DisplayMemberPath="lastname" SelectedValuePath="idCustomer" SelectedValue="{Binding idCustomer}" Loaded="RdvCustomers_Loaded"/>
                     <Label FontWeight="Bold" Foreground="#FF4B6AA2" Content="Courtiers"/>
-                    <ComboBox x:Name="rdvBrokers">
-                        <ComboBoxItem></ComboBoxItem>
-                    </ComboBox>
+                    <ComboBox x:Name="rdvBrokers" DisplayMemberPath="lastname" SelectedValuePath="idBroker" Loaded="RdvBrokers_Loaded"/>
                     <Label FontWeight="Bold" Foreground="#FF4B6AA2" Content="Date du RDV"/>
                     <DatePicker x:Name="rdvDate"></DatePicker>
                     <DockPanel>

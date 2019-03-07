@@ -12,22 +12,18 @@
         <StackPanel Width="250" VerticalAlignment="Top" Margin="0,20,0,0" HorizontalAlignment="Center">
             <TextBlock Foreground="#FF4B6AA2" FontWeight="Bold" FontSize="18" Margin="0,0,0,10">Ajouter un RDV</TextBlock>
             <Label FontWeight="Bold" Foreground="#FF4B6AA2" Content="Clients"/>
-            <ComboBox x:Name="rdvCustomers">
-                <ComboBoxItem Content="gg"></ComboBoxItem>
-            </ComboBox>
+            <ComboBox x:Name="rdvCustomers" IsReadOnly="True" IsEditable="True" Text="-- Clients --" DisplayMemberPath="lastname" SelectedValuePath="idCustomer" Loaded="RdvCustomers_Loaded"/>
             <Label FontWeight="Bold" Foreground="#FF4B6AA2" Content="Courtiers"/>
-            <ComboBox x:Name="rdvBrokers">
-                <ComboBoxItem>gg</ComboBoxItem>
-            </ComboBox>
+            <ComboBox x:Name="rdvBrokers" IsReadOnly="True" IsEditable="True" Text="-- Courtiers --" DisplayMemberPath="lastname" SelectedValuePath="idBroker" Loaded="RdvBrokers_Loaded"/>
             <Label FontWeight="Bold" Foreground="#FF4B6AA2" Content="Date du RDV"/>
             <DatePicker x:Name="rdvDate"></DatePicker>
             <DockPanel>
                 <Label FontWeight="Bold" Foreground="#FF4B6AA2" Content="Heures / Minutes"/>
             </DockPanel>
             <DockPanel HorizontalAlignment="Left" Margin="3,0,0,0">
-                <TextBox x:Name="rdvHours" Width="40"/>
+                <TextBox x:Name="rdvHours" Width="40" PreviewTextInput="RdvHours_PreviewTextInput"/>
                 <TextBlock Margin="5,0,5,0"> : </TextBlock>
-                <TextBox x:Name="rdvMinutes" Width="40"/>
+                <TextBox x:Name="rdvMinutes" Width="40" PreviewTextInput="RdvMinutes_PreviewTextInput"/>
             </DockPanel>
             <Button x:Name="Save" Background="#FF4B6AA2" Foreground="White" Width="100" Margin="0,20,0,5" Click="Save_Click">Enregistrer</Button>
             <Button x:Name="Cancel" Background="#FFD81E1E" Foreground="White" Width="100" Click="Cancel_Click">Annuler</Button>

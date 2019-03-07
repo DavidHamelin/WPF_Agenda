@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ClientLourd_Agenda;
 using System.Data.Entity;
+using System.Text.RegularExpressions;
 
 namespace ClientLourd_Agenda
 {
@@ -25,6 +26,11 @@ namespace ClientLourd_Agenda
     public partial class customersList : Page
     {
         private agenda_DB db = new agenda_DB();
+        string regexName = @"^[A-Za-zéèàêâôûùïüç\-]+$";
+        string regexMail = @"[0-9a-zA-Z\.\-]+@[0-9a-zA-Z\.\-]+.[a-zA-Z]{2,4}";
+        string regexPhone = @"^[0][0-9]{9}";
+        string regexSubject = @"^[A-Za-zéèêëâäàçîïôö&-.,'\ ]+$";
+        string regexBudget = @"[0-9]+$";
         customers customer;
 
         public customersList()
@@ -32,17 +38,17 @@ namespace ClientLourd_Agenda
             InitializeComponent();
             customer = new customers();
         }
-        // liste des clients
+        // Liste des clients
         private void ListCusDataGrid_Loaded(object sender, RoutedEventArgs e)
         {
             listCusDataGrid.ItemsSource = db.customers.ToList();
         }
-
+        // Fermer la fenêtre (grid) de modification
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             EditCustomer.Visibility = Visibility.Hidden;
         }
-
+        // Selection d'un client à modifier
         private void ListCusDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (listCusDataGrid.SelectedItem == null) return;  
@@ -56,24 +62,157 @@ namespace ClientLourd_Agenda
             CustomerSubject.Text = customer.subject;
             EditCustomer.Visibility = Visibility.Visible;
         }
-
+        // Enregistrer Modification
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            customer.lastname = CustomerLastName.Text;
-            customer.firstname = CustomerFirstName.Text;
-            customer.mail = CustomerMail.Text;
-            customer.phoneNumber = CustomerPhone.Text;
-            customer.budget = int.Parse(CustomerBudget.Text);
-            customer.subject = CustomerSubject.Text;
-            db.Entry(customer).State = EntityState.Modified;
-            db.SaveChanges();
-            MessageBox.Show("Client modifié avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
-            listCusDataGrid.Items.Refresh();
+            bool isValid = true; //Permet de Vérifier les erreurs potentielles
+            int error = 0; //Compte d'erreur(s)
+            // Vérification lastname
+            if (!String.IsNullOrEmpty(CustomerLastName.Text))
+            {
+                // Vérif de la validité de l'entrée
+                if (!Regex.IsMatch(CustomerLastName.Text, regexName))
+                {
+                    MessageBox.Show("Ecrire un nom valide");
+                    isValid = false;
+                    error++;
+                }
+                else
+                {
+                    customer.lastname = CustomerLastName.Text;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ecrire un nom");
+                isValid = false;
+                error++;
+            }
+            // Vérification firstname
+            if (!String.IsNullOrEmpty(CustomerFirstName.Text))
+            {
+                // Vérif de la validité de l'entrée
+                if (!Regex.IsMatch(CustomerFirstName.Text, regexName))
+                {
+                    MessageBox.Show("Ecrire un prénom valide");
+                    isValid = false;
+                    error++;
+                }
+                else
+                {
+                    customer.firstname = CustomerFirstName.Text;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ecrire un prénom");
+                isValid = false;
+                error++;
+            }
+            // Vérification mail
+            if (!String.IsNullOrEmpty(CustomerMail.Text))
+            {
+                // Vérification de la validité de l'entrée
+                if (!Regex.IsMatch(CustomerMail.Text, regexMail))
+                {
+                    // Message d'erreur
+                    MessageBox.Show("Ecrire un mail valide");
+                    isValid = false;
+                    error++;
+                }
+
+                else
+                {
+                    customer.mail = CustomerMail.Text;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ecrire un email");
+                isValid = false;
+                error++;
+            }
+            // Vérification phoneNumber
+            if (!String.IsNullOrEmpty(CustomerPhone.Text))
+            {
+                // Vérif de la validité de l'entrée
+                if (!Regex.IsMatch(CustomerPhone.Text, regexPhone))
+                {
+                    MessageBox.Show("Ecrire un numéro de téléphone valide");
+                    isValid = false;
+                    error++;
+                }
+                else
+                {
+                    customer.phoneNumber = CustomerPhone.Text;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ecrire un numéro de téléphone");
+                isValid = false;
+                error++;
+            }
+
+            // vérification du champ budget
+            if (!String.IsNullOrEmpty(CustomerBudget.Text))
+            {
+                if (!Regex.IsMatch(CustomerBudget.Text, regexBudget))
+                {
+                    MessageBox.Show("Budget non valide");
+                    isValid = false;
+                    error++;
+                }
+                else
+                {
+                    customer.budget = int.Parse(CustomerBudget.Text);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ecrire un budget");
+                isValid = false;
+                error++;
+            }
+
+            // vérification pour le champ subject
+            if (!String.IsNullOrEmpty(CustomerSubject.Text))
+            {
+                // Vérif de la validité de l'entrée
+                if (!Regex.IsMatch(CustomerSubject.Text, regexSubject))
+                {
+                    MessageBox.Show("Ecrire un sujet valide");
+                    isValid = false;
+                    error++;
+                }
+                else
+                {
+                    customer.subject = CustomerSubject.Text;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ecrire un sujet");
+                isValid = false;
+                error++;
+            }
+            //SAUVEGARDE ET RESET
+            if (isValid == true)
+            {
+                db.Entry(customer).State = EntityState.Modified;
+                db.SaveChanges();
+                MessageBox.Show("Client modifié avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
+                listCusDataGrid.Items.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Vous avez fait " + error + " Erreur(s)");
+            }
             // Autre façon de rafraichir la page :
             //listCusDataGrid.ItemsSource = null;
             //listCusDataGrid.ItemsSource = db.customers.ToList();
         }
-
+        // Confirmation suppression
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Etes-vous sûr de supprimer ce client ?", "Suppression", MessageBoxButton.OKCancel, MessageBoxImage.Question);
@@ -87,7 +226,7 @@ namespace ClientLourd_Agenda
                     break;
             }
         }
-
+        // Suppression du client
         private void DeleteCustomer()
         {
             db.customers.Remove(customer);
@@ -97,6 +236,5 @@ namespace ClientLourd_Agenda
             listCusDataGrid.ItemsSource = null;
             listCusDataGrid.ItemsSource = db.customers.ToList();
         }
-        // Main.NavigationService.Navigate(new MainWindow());
     }
 }
