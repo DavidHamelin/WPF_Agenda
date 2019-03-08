@@ -215,24 +215,31 @@ namespace ClientLourd_Agenda
         // Confirmation suppression
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
+            // Demande de confirmation
             MessageBoxResult result = MessageBox.Show("Etes-vous sûr de supprimer ce client ?", "Suppression", MessageBoxButton.OKCancel, MessageBoxImage.Question);
             switch (result)
             {
                 case MessageBoxResult.OK:
+                    // Si OK appeler la méthode DeleteCustomer
                     DeleteCustomer();
                     break;
                 case MessageBoxResult.Cancel:
-                    // retour à modification
+                    // Sinon, retour à modification
                     break;
             }
         }
         // Suppression du client
         private void DeleteCustomer()
         {
+            // Suppression dans la database
             db.customers.Remove(customer);
+            // Sauvegarde des changements
             db.SaveChanges();
+            // Message de succès :
             MessageBox.Show("Client supprimé avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
+            // Fermer la fenêtre (cacher la grid) de modification
             EditCustomer.Visibility = Visibility.Hidden;
+            // Rafraichir la liste :
             listCusDataGrid.ItemsSource = null;
             listCusDataGrid.ItemsSource = db.customers.ToList();
         }

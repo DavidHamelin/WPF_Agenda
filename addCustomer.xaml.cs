@@ -187,7 +187,8 @@ namespace ClientLourd_Agenda
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            //NavigationService.GoBack();
+            NavigationService.Navigate(new System.Uri("customersList.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }

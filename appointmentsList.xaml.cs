@@ -50,10 +50,13 @@ namespace ClientLourd_Agenda
             rdvBrokers.SelectedValue = appointment.idBroker;
             rdvDate.Text = appointment.dateHour.ToShortDateString();
             string dateTime = appointment.dateHour.ToShortTimeString();
-            //rdvHours = dateTime.
+            string hour = dateTime.Substring(0, dateTime.Length - 3);
+            rdvHours.Text = hour;
+            string min = dateTime.Substring(3);
+            rdvMinutes.Text = min;
             //rdvMinutes = dateTime.TrimStart();
             // essayer avec methode string.Trim([]), trimEnd ou trimStart ou split
-            
+
             //BrokerFirstName.Text = broker.firstname;
             //BrokerMail.Text = broker.mail;
             //BrokerPhone.Text = broker.phoneNumber;
