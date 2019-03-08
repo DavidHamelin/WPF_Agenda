@@ -6,7 +6,14 @@
       xmlns:local="clr-namespace:ClientLourd_Agenda"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="addCustomer" Background="Transparent">
+      Title="addCustomer">
+    <Page.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <GradientStop Color="White"/>
+            <GradientStop Color="#FF3591C5" Offset="1"/>
+            <GradientStop Color="#FF95C5E0" Offset="0.83"/>
+        </LinearGradientBrush>
+    </Page.Background>
     <Grid>
         <StackPanel Width="250" VerticalAlignment="Top" Margin="0,20,0,0" HorizontalAlignment="Center">
             <TextBlock Foreground="#FF4B6AA2" FontWeight="Bold" FontSize="18" Margin="0,0,0,10">Ajouter un client</TextBlock>

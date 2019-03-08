@@ -6,10 +6,13 @@
         xmlns:local="clr-namespace:ClientLourd_Agenda"
         mc:Ignorable="d"
         Title="Agenda LaManu" Height="600" Width="800" Loaded="Window_Loaded" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush ImageSource="img\handshake business.jpg"></ImageBrush>
+    </Window.Background>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Fichier">
-                <MenuItem  Header="_Salut !" />
+                <MenuItem  Header="_About" Click="MenuItem_Click_1" />
                 <Separator />
                 <MenuItem Header="_Quitter" Click="MenuItem_Click" />
             </MenuItem>
@@ -25,20 +28,8 @@
                 <MenuItem x:Name="AddRdv" Header="_Ajouter un RDV" Click="AddRdv_Click" />
                 <MenuItem x:Name="ListRdv" Header="_Liste des RDV" Click="ListRdv_Click" />
             </MenuItem>
-            <MenuItem Header="_?">
-                <MenuItem x:Name="Help" Header="_Aide" />
-                <Separator />
-                <MenuItem x:Name="About" Header="_A propos" />
-            </MenuItem>
         </Menu>
         <Grid>
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="White"/>
-                    <GradientStop Color="#FF3591C5" Offset="1"/>
-                    <GradientStop Color="#FF95C5E0" Offset="0.83"/>
-                </LinearGradientBrush>
-            </Grid.Background>
             <TextBlock HorizontalAlignment="Center" FontSize="28" Foreground="#FF4B6AA2" FontWeight="Bold" TextDecorations="{x:Null}">- Gestion des rendez-vous -</TextBlock>
             <Frame x:Name="FrameContent" Height="501" VerticalAlignment="Top" NavigationUIVisibility="Hidden" Margin="0,48,0,0"/>
         </Grid>

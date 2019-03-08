@@ -69,5 +69,10 @@ namespace ClientLourd_Agenda
         {
             FrameContent.Navigate(new System.Uri("appointmentsList.xaml", UriKind.RelativeOrAbsolute));
         }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            FrameContent.Navigate(new System.Uri("About.xaml", UriKind.RelativeOrAbsolute));
+        }
     }
 }
