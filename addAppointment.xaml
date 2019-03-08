@@ -21,12 +21,22 @@
                 <Label FontWeight="Bold" Foreground="#FF4B6AA2" Content="Heures / Minutes"/>
             </DockPanel>
             <DockPanel HorizontalAlignment="Left" Margin="3,0,0,0">
-                <TextBox x:Name="rdvHours" Width="40" PreviewTextInput="RdvHours_PreviewTextInput"/>
-                <TextBlock Margin="5,0,5,0"> : </TextBlock>
-                <TextBox x:Name="rdvMinutes" Width="40" PreviewTextInput="RdvMinutes_PreviewTextInput"/>
+                <!--<TextBox x:Name="rdvHours" Width="40"/>-->
+                <ComboBox x:Name="rdvHours" Width="40" Loaded="RdvHours_Loaded">
+                </ComboBox>
+                <TextBlock Margin="5,0,5,0"> :</TextBlock>
+                <!--<TextBox x:Name="rdvMinutes" Width="40"/>-->
+                <ComboBox x:Name="rdvMinutes" Width="40" Loaded="RdvMinutes_Loaded">
+                    <!--<ComboBoxItem>30</ComboBoxItem>-->
+                </ComboBox>
             </DockPanel>
             <Button x:Name="Save" Background="#FF4B6AA2" Foreground="White" Width="100" Margin="0,20,0,5" Click="Save_Click">Enregistrer</Button>
             <Button x:Name="Cancel" Background="#FFD81E1E" Foreground="White" Width="100" Click="Cancel_Click">Annuler</Button>
         </StackPanel>
+
+        <TextBlock HorizontalAlignment="Right" Width="200" x:Name="ErrorCustomer" Foreground="Red" Margin="0,82,60,348"/>
+        <TextBlock HorizontalAlignment="Right" Width="200" x:Name="ErrorBroker" Foreground="Red" Margin="0,131,60,299"/>
+        <TextBlock HorizontalAlignment="Right" Width="200" x:Name="ErrorDate" Foreground="Red" Margin="0,178,60,252"/>
+        <TextBlock HorizontalAlignment="Right" Width="200" x:Name="ErrorTime" Foreground="Red" Margin="0,225,60,206"></TextBlock>
     </Grid>
 </Page>

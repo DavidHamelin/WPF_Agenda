@@ -66,7 +66,6 @@ namespace ClientLourd_Agenda
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             bool isValid = true; //Permet de Vérifier les erreurs potentielles
-            int error = 0; //Compte d'erreur(s)
             // Vérification lastname
             if (!String.IsNullOrEmpty(CustomerLastName.Text))
             {
@@ -75,7 +74,6 @@ namespace ClientLourd_Agenda
                 {
                     MessageBox.Show("Ecrire un nom valide");
                     isValid = false;
-                    error++;
                 }
                 else
                 {
@@ -86,7 +84,6 @@ namespace ClientLourd_Agenda
             {
                 MessageBox.Show("Ecrire un nom");
                 isValid = false;
-                error++;
             }
             // Vérification firstname
             if (!String.IsNullOrEmpty(CustomerFirstName.Text))
@@ -96,7 +93,6 @@ namespace ClientLourd_Agenda
                 {
                     MessageBox.Show("Ecrire un prénom valide");
                     isValid = false;
-                    error++;
                 }
                 else
                 {
@@ -107,7 +103,6 @@ namespace ClientLourd_Agenda
             {
                 MessageBox.Show("Ecrire un prénom");
                 isValid = false;
-                error++;
             }
             // Vérification mail
             if (!String.IsNullOrEmpty(CustomerMail.Text))
@@ -118,7 +113,6 @@ namespace ClientLourd_Agenda
                     // Message d'erreur
                     MessageBox.Show("Ecrire un mail valide");
                     isValid = false;
-                    error++;
                 }
 
                 else
@@ -130,7 +124,6 @@ namespace ClientLourd_Agenda
             {
                 MessageBox.Show("Ecrire un email");
                 isValid = false;
-                error++;
             }
             // Vérification phoneNumber
             if (!String.IsNullOrEmpty(CustomerPhone.Text))
@@ -140,7 +133,6 @@ namespace ClientLourd_Agenda
                 {
                     MessageBox.Show("Ecrire un numéro de téléphone valide");
                     isValid = false;
-                    error++;
                 }
                 else
                 {
@@ -151,7 +143,6 @@ namespace ClientLourd_Agenda
             {
                 MessageBox.Show("Ecrire un numéro de téléphone");
                 isValid = false;
-                error++;
             }
 
             // vérification du champ budget
@@ -161,7 +152,6 @@ namespace ClientLourd_Agenda
                 {
                     MessageBox.Show("Budget non valide");
                     isValid = false;
-                    error++;
                 }
                 else
                 {
@@ -172,7 +162,6 @@ namespace ClientLourd_Agenda
             {
                 MessageBox.Show("Ecrire un budget");
                 isValid = false;
-                error++;
             }
 
             // vérification pour le champ subject
@@ -183,7 +172,6 @@ namespace ClientLourd_Agenda
                 {
                     MessageBox.Show("Ecrire un sujet valide");
                     isValid = false;
-                    error++;
                 }
                 else
                 {
@@ -194,7 +182,6 @@ namespace ClientLourd_Agenda
             {
                 MessageBox.Show("Ecrire un sujet");
                 isValid = false;
-                error++;
             }
             //SAUVEGARDE ET RESET
             if (isValid == true)
@@ -203,10 +190,6 @@ namespace ClientLourd_Agenda
                 db.SaveChanges();
                 MessageBox.Show("Client modifié avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
                 listCusDataGrid.Items.Refresh();
-            }
-            else
-            {
-                MessageBox.Show("Vous avez fait " + error + " Erreur(s)");
             }
             // Autre façon de rafraichir la page :
             //listCusDataGrid.ItemsSource = null;

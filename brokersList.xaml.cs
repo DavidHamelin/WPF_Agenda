@@ -59,7 +59,6 @@ namespace ClientLourd_Agenda
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             bool isValid = true; //Permet de Vérifier les erreurs potentielles
-            int error = 0; //Compte d'erreur(s)
             // Vérification lastname
             if (!String.IsNullOrEmpty(BrokerLastName.Text))
             {
@@ -68,7 +67,6 @@ namespace ClientLourd_Agenda
                 {
                     MessageBox.Show("Ecrire un nom valide");
                     isValid = false;
-                    error++;
                 }
                 else
                 {
@@ -79,7 +77,6 @@ namespace ClientLourd_Agenda
             {
                 MessageBox.Show("Ecrire un nom");
                 isValid = false;
-                error++;
             }
             // Vérification firstname
             if (!String.IsNullOrEmpty(BrokerFirstName.Text))
@@ -89,7 +86,6 @@ namespace ClientLourd_Agenda
                 {
                     MessageBox.Show("Ecrire un prénom valide");
                     isValid = false;
-                    error++;
                 }
                 else
                 {
@@ -100,7 +96,6 @@ namespace ClientLourd_Agenda
             {
                 MessageBox.Show("Ecrire un prénom");
                 isValid = false;
-                error++;
             }
             // Vérification mail
             if (!String.IsNullOrEmpty(BrokerMail.Text))
@@ -111,7 +106,6 @@ namespace ClientLourd_Agenda
                     // Message d'erreur
                     MessageBox.Show("Ecrire un mail valide");
                     isValid = false;
-                    error++;
                 }
 
                 else
@@ -123,7 +117,6 @@ namespace ClientLourd_Agenda
             {
                 MessageBox.Show("Ecrire un email");
                 isValid = false;
-                error++;
             }
             // Vérification phoneNumber
             if (!String.IsNullOrEmpty(BrokerPhone.Text))
@@ -133,7 +126,6 @@ namespace ClientLourd_Agenda
                 {
                     MessageBox.Show("Ecrire un numéro de téléphone valide");
                     isValid = false;
-                    error++;
                 }
                 else
                 {
@@ -144,7 +136,6 @@ namespace ClientLourd_Agenda
             {
                 MessageBox.Show("Ecrire un numéro de téléphone");
                 isValid = false;
-                error++;
             }
             //SAUVEGARDE ET RESET
             if (isValid == true)
@@ -153,10 +144,6 @@ namespace ClientLourd_Agenda
                 db.SaveChanges();
                 MessageBox.Show("Client modifié avec succès", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
                 listBrokersDataGrid.Items.Refresh();
-            }
-            else
-            {
-                MessageBox.Show("Vous avez fait " + error + " Erreur(s)");
             }
         }
 
