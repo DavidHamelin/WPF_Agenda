@@ -33,3 +33,7 @@ C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\obj\Debug\addAppointme
 C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\obj\Debug\appointmentsList.baml
 C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\obj\Debug\About.g.cs
 C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\obj\Debug\About.baml
+C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\bin\Debug\ClientLourd_Agenda.exe.manifest
+C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\bin\Debug\ClientLourd_Agenda.application
+C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\obj\Debug\ClientLourd_Agenda.exe.manifest
+C:\Users\Dell\source\repos\ClientLourd\ClientLourd_Agenda\obj\Debug\ClientLourd_Agenda.application

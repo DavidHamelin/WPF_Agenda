@@ -68,7 +68,7 @@ namespace ClientLourd_Agenda
             rdvMinutes.Text = min;
             EditRdv.Visibility = Visibility.Visible;
         }
-
+        
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             // booleen pour vérification
@@ -83,7 +83,7 @@ namespace ClientLourd_Agenda
                 MessageBox.Show("Date manquante", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 isValid = false;
             }
-
+            
             // Verification Heures et minutes
             if ((!String.IsNullOrEmpty(rdvHours.Text)) && (!String.IsNullOrEmpty(rdvMinutes.Text)))
             {
@@ -110,7 +110,7 @@ namespace ClientLourd_Agenda
                 MessageBox.Show("Horaire non valide", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 isValid = false;
             }
-            
+
             //// Faire en sorte qu'un courtier n'ai pas 2 rendez-vous en même temps (même jour et même heure)
             //var brokerAlreadyUsed = db.appointements.Where(rdv => rdv.idBroker == appointment.idBroker && rdv.dateHour == appointment.dateHour).SingleOrDefault();
             //if (brokerAlreadyUsed != null)

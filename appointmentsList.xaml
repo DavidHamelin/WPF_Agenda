@@ -24,7 +24,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Client" Binding="{Binding customers.lastname}" />
                 <DataGridTextColumn Header="Courtier" Binding="{Binding brokers.lastname}"/>
-                <DataGridTextColumn Header="Date et Horaire" Binding="{Binding dateHour}"/>
+                <DataGridTextColumn Header="Date et Horaire" Binding="{Binding dateHour, StringFormat=dd/MM/yyyy HH:mm}"/>
+                <!--StringFormat : permet de changer le format de la date et l'heure-->
             </DataGrid.Columns>
         </DataGrid>
         <Grid x:Name="EditRdv" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,20,0" Visibility="Hidden">

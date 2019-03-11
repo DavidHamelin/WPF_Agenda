@@ -33,17 +33,17 @@ namespace ClientLourd_Agenda
             InitializeComponent();
             broker = new brokers();
         }
-
+        // Liste des clients
         private void ListBrokersDataGrid_Loaded(object sender, RoutedEventArgs e)
         {
             listBrokersDataGrid.ItemsSource = db.brokers.ToList();
         }
-
+        // Fermer la fenêtre (grid) de modification
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             EditBroker.Visibility = Visibility.Hidden;
         }
-
+        // Selection d'un courtier à modifier
         private void ListBrokersDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (listBrokersDataGrid.SelectedItem == null) return;
@@ -55,7 +55,7 @@ namespace ClientLourd_Agenda
             BrokerPhone.Text = broker.phoneNumber;
             EditBroker.Visibility = Visibility.Visible;
         }
-
+        // Enregistrer Modification
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             bool isValid = true; //Permet de Vérifier les erreurs potentielles
@@ -146,7 +146,7 @@ namespace ClientLourd_Agenda
                 listBrokersDataGrid.Items.Refresh();
             }
         }
-
+        // Confirmation suppression
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Etes-vous sûr de supprimer ce courtier ?", "Suppression", MessageBoxButton.OKCancel, MessageBoxImage.Question);
@@ -160,6 +160,7 @@ namespace ClientLourd_Agenda
                     break;
             }
         }
+        // Suppression du client
         private void DeleteBroker()
         {
             db.brokers.Remove(broker);

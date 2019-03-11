@@ -12,7 +12,7 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Fichier">
-                <MenuItem  Header="_About" Click="MenuItem_Click_1" />
+                <MenuItem  Header="_A propos" Click="MenuItem_Click_1" />
                 <Separator />
                 <MenuItem Header="_Quitter" Click="MenuItem_Click" />
             </MenuItem>

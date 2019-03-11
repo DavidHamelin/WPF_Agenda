@@ -137,7 +137,7 @@ namespace ClientLourd_Agenda
                 MessageBox.Show("Vous avez fait " + error + " Erreur(s)");
             }
         }
-
+        // Retour à la liste
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new System.Uri("brokersList.xaml", UriKind.RelativeOrAbsolute));

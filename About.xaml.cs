@@ -20,6 +20,7 @@ namespace ClientLourd_Agenda
     /// </summary>
     public partial class About : Page
     {
+        // Page de crédits
         public About()
         {
             InitializeComponent();

@@ -102,8 +102,29 @@ namespace ClientLourd_Agenda
                 ErrorTime.Text = "Horaire non valide";
                 isValid = false;
             }
-            
-            
+
+            //// Autre methode à mettre avec vérification null ou vide
+            //if (!String.IsNullOrEmpty(rdvHours.Text))
+            //{
+            //    if (int.TryParse(rdvHours.Text, out int resultHour))
+            //    {
+            //        if ( resultHour < 8 || resultHour > 20)
+            //        ErrorTime.Text = "Heure non valide";
+            //        isValid = false;
+            //    }
+            //    else
+            //    {
+            //        ErrorTime.Text = "Entrer une heure";
+            //        isValid = false;
+            //    }
+            //}
+            //else
+            //{
+            //    ErrorTime.Text = "Saisissez une heure";
+            //    isValid = false;
+            //}
+
+
             // Faire en sorte qu'un courtier n'ai pas 2 rendez-vous en même temps (même jour et même heure)
             var brokerAlreadyUsed = db.appointements.Where(rdv => rdv.idBroker == rdvToAdd.idBroker && rdv.dateHour == rdvToAdd.dateHour).SingleOrDefault();
             if (brokerAlreadyUsed != null)
@@ -132,7 +153,7 @@ namespace ClientLourd_Agenda
                 NavigationService.Navigate(new System.Uri("appointmentsList.xaml", UriKind.RelativeOrAbsolute));
             }
         }
-
+        // Boucle pour afficher les heures de 8h(inclus) à 20h(exclu)
         private void RdvHours_Loaded(object sender, RoutedEventArgs e)
         {
             for (int i = 8; i < 20; i++)
@@ -140,7 +161,7 @@ namespace ClientLourd_Agenda
                 rdvHours.Items.Add(i.ToString());
             }
         }
-
+        // Boucle pour afficher les minutes de 5 en 5
         private void RdvMinutes_Loaded(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < 60; i++)
@@ -151,7 +172,6 @@ namespace ClientLourd_Agenda
                 }
             }
         }
-
         // Revenir à la liste
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {

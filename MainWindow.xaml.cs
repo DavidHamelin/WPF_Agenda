@@ -24,12 +24,12 @@ namespace ClientLourd_Agenda
         {
             InitializeComponent();
         }
-
+        // Afficher la liste de clients au démarrage
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             FrameContent.Navigate(new System.Uri("customersList.xaml", UriKind.RelativeOrAbsolute));
         }
-
+        // Menu ajout client 
         private void AddCustomer_Click(object sender, RoutedEventArgs e)
         {
             FrameContent.Navigate(new System.Uri("addCustomer.xaml", UriKind.RelativeOrAbsolute));
@@ -38,38 +38,38 @@ namespace ClientLourd_Agenda
         //{
         //    FrameContent.Content = new addCustomer();
         //}
-
+        // Menu liste clients
         private void ListCustomers_Click(object sender, RoutedEventArgs e)
         {
             FrameContent.Navigate(new System.Uri("customersList.xaml", UriKind.RelativeOrAbsolute));
             
         }
-
+        // Menu ajout courtier
         private void AddBroker_Click(object sender, RoutedEventArgs e)
         {
             FrameContent.Navigate(new System.Uri("addBroker.xaml", UriKind.RelativeOrAbsolute));
         }
-
+        // Menu liste courtiers
         private void ListBroker_Click(object sender, RoutedEventArgs e)
         {
             FrameContent.Navigate(new System.Uri("brokersList.xaml", UriKind.RelativeOrAbsolute));
         }
-
+        // Menu Quitter le programme
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
+        // Menu ajouter un RDV
         private void AddRdv_Click(object sender, RoutedEventArgs e)
         {
             FrameContent.Navigate(new System.Uri("addAppointment.xaml", UriKind.RelativeOrAbsolute));
         }
-
+        // Menu liste des RDV
         private void ListRdv_Click(object sender, RoutedEventArgs e)
         {
             FrameContent.Navigate(new System.Uri("appointmentsList.xaml", UriKind.RelativeOrAbsolute));
         }
-
+        // Menu Page de crédits
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
             FrameContent.Navigate(new System.Uri("About.xaml", UriKind.RelativeOrAbsolute));
